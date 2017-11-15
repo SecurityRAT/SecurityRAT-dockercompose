@@ -23,15 +23,19 @@ Configuration wise, nothing must be done since the application can be as well st
     ```
 ## How to run
 1. Clone this project
-1. Before running a new version of SecurityRAT, make sure to remove the old latest docker image. You can achieve this by running `docker rmi securityrat/securityrat:latest`.
-1. Open a terminal and run `docker-compose build` from the project's root directory. This will build the latest mysql image used by the securityrat service.
+1. Before running a new version of SecurityRAT, make sure you remove the old latest docker image. You can achieve this by running `docker rmi securityrat/securityrat:latest`. Alternatively, you could set the desired version of SecurityRAT you want to use by specifying the tag name in the _docker-compose.yml file_ as follows:
+    ```yaml
+    securityrat:
+        container_name: securityrat 
+        image: securityrat/securityrat:${image_tag_name}
+    ```
+1. Open a terminal and run `docker-compose build` from the project's root directory. This will build the latest mysql image which shall be used by the _mysql-service_.
 1. Run `docker-compose up --remove-orphans` from the project's root directory.
 1. After all services have started, navigate to https://localhost:9002 in your browser
 1. Authenticate with one of the default users `admin/admin` or `user/user`
-1. _Optional:_ In order to play around with already existing data. We provide a list of [requirements](https://github.com/SecurityRAT/Security-Requirements/blob/master/requirements.sql) as SQL dump. This dump has already being copied to the mysql image build in step 2. In other to execute this, open another terminal and run `docker exec securityrat-mysql sh -c './var/dumpRequirements.sh'`
+1. **Optional:** In order to play around with already existing data. We provide a list of [requirements](https://github.com/SecurityRAT/Security-Requirements/blob/master/requirements.sql) as SQL dump. This dump has already being copied to the mysql image built in step 2. To load this requirement into the database, open another terminal and run `docker exec securityrat-mysql sh -c './var/dumpRequirements.sh'`
 
 ## Cleaning up
-After stopping the app, run the following command from the project's root directory:
+After stopping the app, run `docker-compose down` from the project's root directory to remove the created containers.
 
-    docker-compose down
 
