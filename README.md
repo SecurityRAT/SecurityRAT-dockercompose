@@ -31,7 +31,7 @@ Configuration wise, nothing must be done since the application can be as well st
     ```
 1. Open a terminal and run `docker-compose build` from the project's root directory. This will build the latest mysql image which shall be used by the _mysql-service_.
 1. Run `docker-compose up --remove-orphans` from the project's root directory.
-1. After all services have started, navigate to https://localhost:9002 in your browser
+1. After all services have started, navigate to http://localhost:9002 in your browser
 1. Authenticate with one of the default users `admin/admin` or `user/user`
 1. **Optional:** In order to play around with already existing data. We provide a list of [requirements](https://github.com/SecurityRAT/Security-Requirements/blob/master/requirements.sql) as SQL dump. This dump has already being copied to the mysql image built in step 2. To load this requirement into the database, open another terminal and run `docker exec securityrat-mysql sh -c './var/dumpRequirements.sh'`
 
