@@ -4,7 +4,7 @@ services:
     container_name: securityrat-mysql
     build:
       context: ./mysql
-    image: securitycat-mysql:5.7
+    image: securityrat-mysql:5.7
     environment: 
       MYSQL_DATABASE: 'securityrat'
       MYSQL_ROOT_PASSWORD: 'changeit'
