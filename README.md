@@ -45,7 +45,7 @@ Configuration wise, nothing must be done since the application can be as well st
 1. Update the database with the requirements set included as SQL dump ([OWASP ASVS 3.0.1 set](https://github.com/SecurityRAT/Security-Requirements/blob/master/owasp_asvs_3_0_1.sql)) in the _mysql-service_ image. Do this by running this command in a new terminal:
 
     ```sh
-    docker exec securityrat-mysql sh -c './var/dumpRequirements.sh'
+    docker exec securityrat-mysql sh -c '/bin/bash /var/dumpRequirements.sh'
     ```
 
 ## Cleaning up
