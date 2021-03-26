@@ -20,4 +20,4 @@ services:
       - SPRING_DATASOURCE_PASSWORD=password # database MYSQL_PASSWORD provided in the mariadb-service above
       - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
     ports: 
-      - 9002:8080
+      - 9002:9000
