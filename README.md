@@ -1,7 +1,10 @@
+# SecurityRAT Docker Compose
 
 This repository is a docker-compose setup for a quickstart with the [SecurityRAT](https://github.com/SecurityRAT/SecurityRAT) tool.
 
 **Important: the setup is not suitable for a production environment!**
+
+> The docker-compose setup for version 1.7.x or lower is available on branch [**v1.7.x**](https://github.com/SecurityRAT/SecurityRAT-dockercompose/tree/v1.7.x).
 
 ## How to run
 
