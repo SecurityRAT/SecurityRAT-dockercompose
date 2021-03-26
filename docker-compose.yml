@@ -13,7 +13,7 @@ services:
     command: mysqld --skip-ssl
   securityrat:
     container_name: securityrat 
-    image: securityrat/securityrat
+    image: securityrat/securityrat:1.7.13
     links: 
       - mysql-service
     environment:
