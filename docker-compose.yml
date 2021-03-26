@@ -1,10 +1,10 @@
 version: '3'
 services:
-  mysql-service:
-    container_name: securityrat-mysql
+  mariadb-service:
+    container_name: securityrat-mariadb
     build:
-      context: ./mysql
-    image: securityrat-mysql:5.7
+      context: ./mariadb
+    image: securityrat-mariadb:10.5
     environment: 
       MYSQL_DATABASE: 'securityrat'
       MYSQL_ROOT_PASSWORD: 'changeit'
@@ -13,13 +13,11 @@ services:
     command: mysqld --skip-ssl
   securityrat:
     container_name: securityrat 
-    image: securityrat/securityrat
-    links: 
-      - mysql-service
+    image: securityrat/securityrat:v1.8
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-service:3306/securityrat?useUnicode=true&characterEncoding=utf8&useSSL=false # 
-      - SPRING_DATASOURCE_USERNAME=securityrat # database MYSQL_USER provided in the mysql-service above
-      - SPRING_DATASOURCE_PASSWORD=password # database MYSQL_PASSWORD provided in the mysql-service above
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mariadb-service:3306/securityrat?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_USERNAME=securityrat # database MYSQL_USER provided in the mariadb-service above
+      - SPRING_DATASOURCE_PASSWORD=password # database MYSQL_PASSWORD provided in the mariadb-service above
       - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
     ports: 
-      - 9002:9000
+      - 9002:8080
