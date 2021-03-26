@@ -8,16 +8,17 @@ This repository is a docker-compose setup for a quickstart with the [SecurityRAT
 
 ## How to run
 
-1. Clone this project
+1. Clone this project.
 1. [Optional] You can modify the database settings as described in the **Configuration** section below.
 1. Run `docker-compose up --remove-orphans` from the project's root directory.
-1. After all services have started, navigate to http://localhost:9002 in your browser.
-1. Authenticate with one of the default users `admin/admin` or `user/user`
 1. Update the database with the requirements set included as SQL dump ([OWASP ASVS 3.0.1 set](https://github.com/SecurityRAT/Security-Requirements/blob/master/owasp_asvs_3_0_1.sql)) in the _mariadb-service_ image. Do this by running this command in a new terminal:
 
     ```sh
     docker exec securityrat-mariadb sh -c './var/dumpRequirements.sh'
     ```
+
+1. After all services have started, navigate to http://localhost:9002 in your browser.
+1. Authenticate with one of the default users `admin/admin` or `user/user`
 
 ## Configuration
 
