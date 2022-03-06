@@ -4,7 +4,7 @@ services:
     container_name: securityrat-mariadb
     build:
       context: ./mariadb
-    image: securityrat-mariadb:10.5
+    image: securityrat-mariadb:10.7.3
     environment: 
       MYSQL_DATABASE: 'securityrat'
       MYSQL_ROOT_PASSWORD: 'changeit'
@@ -13,7 +13,7 @@ services:
     command: mysqld --skip-ssl
   securityrat:
     container_name: securityrat 
-    image: securityrat/securityrat:v1.8
+    image: securityrat/securityrat:v1.8.4
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://mariadb-service:3306/securityrat?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
       - SPRING_DATASOURCE_USERNAME=securityrat # database MYSQL_USER provided in the mariadb-service above
