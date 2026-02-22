@@ -15,8 +15,7 @@ services:
     container_name: securityrat
     image: securityrat/securityrat:v1.8.5
     platform: linux/amd64
-    security_opt:
-      - seccomp:unconfined
+    privileged: true
     shm_size: '256m'
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://mariadb-service:3306/securityrat?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
